@@ -1,4 +1,5 @@
 import { MainLayout } from "@layouts";
+import Auth from "@layouts/Auth/Auth";
 import AboutUs from "@pages/AboutUs";
 import Admin from "@pages/Admin";
 import Home from "@pages/Home";
@@ -12,43 +13,52 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout/>,
+    element: <MainLayout />,
     errorElement: <>error</>,
     children: [
       {
         index: true,
-        element:<Home />,
-      },
-      {
-        path: "/login",
-        element: <Login/>,
-      },
-      {
-        path: "/register",
-        element: <Register/>,
+        element: <Home />,
       },
       {
         path: "/menu",
-        element: <Menu/>,
+        element: <Menu />,
       },
       {
         path: "/about",
-        element: <AboutUs/>,
+        element: <AboutUs />,
       },
       {
         path: "/services",
-        element: <Services/>,
+        element: <Services />,
       },
       {
         path: "/profile",
-        element: <Profile/>,
+        element: <Profile />,
       },
       {
         path: "/admin",
-        element: <Admin/>,
+        element: <Admin />,
       },
-      
     ],
+  },
+
+  {
+    path: "/login",
+    element: <Auth />,
+    children: [{
+      index: true,
+      element: <Login />,
+    }],
+  },
+
+  {
+    path: "/register",
+    element: <Auth />,
+    children: [{
+      index: true,
+      element:  <Register />,
+    }],
   },
 ]);
 const AppRouter = () => {
