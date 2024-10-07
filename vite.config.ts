@@ -8,9 +8,10 @@ import path from "path";
 export default defineConfig({
   resolve: {
     alias: {
+      "@animations": path.resolve(__dirname, "./src/animations"),
       "@assets": path.resolve(__dirname, "./src/assets"),
       "@components": path.resolve(__dirname, "./src/components"),
-      "@firebase": path.resolve(__dirname, "./src/firebase"),
+      // "@firebase": path.resolve(__dirname, "./src/firebase"),
       "@hooks": path.resolve(__dirname, "./src/hooks"),
       "@layouts": path.resolve(__dirname, "./src/layouts"),
       "@pages": path.resolve(__dirname, "./src/pages"),
@@ -24,6 +25,7 @@ export default defineConfig({
     },
   },
   plugins: [react(), svgr()],
-
-  
+  // optimizeDeps: {
+  //   exclude: ["js-big-decimal"],
+  // },
 });

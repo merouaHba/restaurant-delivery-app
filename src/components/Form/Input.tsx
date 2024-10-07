@@ -1,20 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
+import {motion} from 'framer-motion'
 
 type TInput = {
+  value: string;
   type: string;
   placeholder: string;
+  icon: React.ReactNode
+  isSignUp?:boolean;
   changeHandler: (e: React.FocusEvent<HTMLInputElement>) => void;
 };
-const Input = ({type,placeholder,changeHandler}:TInput) => {
+const Input = ({isSignUp, value, type, placeholder, icon, changeHandler }: TInput) => {
+  const [isfocus, setIsfocus] = useState(false)
   return (
-    <div className="flex items-center justify-center gap-4 bg-lightOverlay backdrop-blur-md rounded-md w-full px-4 py-2">
+    <motion.div
+      initial={isSignUp?{ opacity: 0}:{}}
+      animate={isSignUp?{ opacity: 1}:{}}
+      exit={isSignUp?{ opacity: 0}:{}}
+      className={`flex items-center justify-center gap-4 bg-lightOverlay backdrop-blur-md rounded-md w-full px-4 py-2 ${
+        isfocus ? "shadow-md shadow-red-400" : "shadow-none"
+      }`}
+    >
+      {icon}
       <input
+        value={value}
         type={type}
-        className="form-control block w-full px-4 py-2  text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-orange-600 focus:outline-none"
+        className="w-full h-full text-headingColor text-md font-semibold bg-transparent border-none  focus:outline-none focus:bg-transparent rounded-md px-2 py-1 "
         placeholder={placeholder}
         onChange={changeHandler}
+        onFocus={() => setIsfocus(true)}
+        onBlur={() => setIsfocus(false)}
       />
-    </div>
+    </motion.div>
   );
 }
 

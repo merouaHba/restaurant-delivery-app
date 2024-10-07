@@ -1,7 +1,8 @@
 import AvatarI from "@assets/images/avatar.png";
 import Cheff1I from "@assets/images/chef1.png";
 import CheffI from "@assets/images/cheff.png";
-import LogoI from "@assets/images/chef1.png";
+import LogoI from "@assets/images/chef-hat.png";
+// import LogoI from "@assets/images/chef1.png";
 import BikeDeliveryI from "@assets/images/delivery.png";
 import HeroBgI from "@assets/images/hero-bg.png";
 import EmptyCartI from "@assets/images/emptyCart.svg";
